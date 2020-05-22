@@ -22,10 +22,10 @@ void disp(st* root)						//Level Order display
         if(tmp.front() == lb) //Dummy node on top
         {
             if(tmp.size() == 1) //Terminating case when only dummy node is left
-						{
-							cout<<endl<<endl;
-							break;
-						}
+			{
+				cout<<endl<<endl;
+				break;
+			}
             cout<<endl<<endl;
             tmp.push(lb);			//Pop and push dummy node to end of queue
             tmp.pop();
