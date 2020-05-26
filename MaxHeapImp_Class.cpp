@@ -78,10 +78,13 @@ public:
         return heap;
     }
 
-    void deleteLast()
+    void deleteRoot()
     {
-        // swap()
+        heap[1] = heap.back();
+        heap.resize(heap.size() - 1);
+        percolateDown(heap, 1);
     }
+
 };
 
 int main() {
@@ -101,6 +104,10 @@ int main() {
     Heap h2;
     h2.buildHeap(v);
     cout<<"Heap built using buildUtility:"<<endl;
+    h2.printHeap();
+
+    //deleteLast
+    h2.deleteRoot();
     h2.printHeap();
 
     return 0;
