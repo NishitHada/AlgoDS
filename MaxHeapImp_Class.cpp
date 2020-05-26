@@ -20,6 +20,16 @@ public:
     {
         if(2*idx > heap.size()) return;
 
+        //Case of only one child in last node
+        if(2*idx == heap.size() - 1)
+        {
+            if( heap[2*idx] < heap[idx] ) return;
+            else
+            {
+                swap(heap[idx], heap[2*idx]);
+                return;
+            }
+        }
         // cout<<"Parent->"<< heap[idx] <<endl;;
         // cout<<"Children->"<< heap[2*idx] <<"\t"<< heap[2*idx+1]<<endl;
 
@@ -57,18 +67,20 @@ public:
 
     vector<int> buildHeap(vector<int> A)
     {
-        // vector<int> heap( A.size() + 1 );
-        // int heap_idx = 1;
+        heap = A;
+        heap.insert(heap.begin(), 0);
 
-        for(int i = 0; i < A.size(); i++)
+        for(int i = A.size() - 1; i > 0; i--)
         {
-            insert(A[i]);
-            // heap[heap_idx] = A[i];
-            // percolateUp(heap, heap_idx);
-            // printArray(heap);
+            percolateDown(heap, i);
         }
 
         return heap;
+    }
+
+    void deleteLast()
+    {
+        // swap()
     }
 };
 
