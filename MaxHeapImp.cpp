@@ -23,7 +23,18 @@ void percolateUp(vector<int> &heap, int idx)
 
 void percolateDown(vector<int> &heap, int idx)
 {
-    if(2*idx > heap.size()) return;
+    if(2*idx >= heap.size()) return;
+
+    //Case of only one child in last node
+    if(2*idx == heap.size() - 1)
+    {
+        if( heap[2*idx] < heap[idx] ) return;
+        else
+        {
+            swap(heap[idx], heap[2*idx]);
+            return;
+        }
+    }
 
     cout<<"Parent->"<< heap[idx] <<endl;;
     cout<<"Children->"<< heap[2*idx] <<"\t"<< heap[2*idx+1]<<endl;

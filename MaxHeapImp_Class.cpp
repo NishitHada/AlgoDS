@@ -18,7 +18,7 @@ public:
 
     void percolateDown(vector<int> &heap, int idx)
     {
-        if(2*idx > heap.size()) return;
+        if(2*idx >= heap.size()) return;
 
         //Case of only one child in last node
         if(2*idx == heap.size() - 1)
@@ -30,6 +30,7 @@ public:
                 return;
             }
         }
+
         // cout<<"Parent->"<< heap[idx] <<endl;;
         // cout<<"Children->"<< heap[2*idx] <<"\t"<< heap[2*idx+1]<<endl;
 
