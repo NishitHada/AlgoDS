@@ -11,7 +11,7 @@ public:
     Sieve(int n)
     {
         sieve_size = n;
-        s.assign(sieve_size, 1);
+        s.assign(sieve_size+1, 1);
     }
 
     void make_sieve()
